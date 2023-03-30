@@ -1,0 +1,264 @@
+#:kivy 2.0.0
+
+<ScreenManager>:
+    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+    RiGrader:
+    RiWriter:
+    Classes:
+    User_manual:
+
+<RiGrader>:    
+    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+    name: 'rigrader_app'
+    name_input: name_input
+    reading_input: reading_input
+    listening_input: listening_input
+    writing1_input: writing1_input
+    writing2_input: writing2_input
+    speaking_input: speaking_input
+    results_text: results_text
+    reading_per_display: reading_per_display
+    list_per_display: list_per_display
+    writing_per_display: writing_per_display
+    speaking_per_display: speaking_per_display
+
+    ScrollView:
+
+        MDGridLayout:
+            cols: 1
+            spacing: [10, 10]
+            padding: [20, 20]
+            size_hint_y: None
+            height: self.minimum_height
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+            
+            
+            MDGridLayout:
+                cols: 3
+                spacing: "50dp"
+                size_hint_y: None
+                height: self.minimum_height
+                MDFillRoundFlatIconButton:
+                    text: "RiWriter"
+                    icon: "pencil"
+                    theme_text_color: "Custom"
+                    text_color: 0, 0, 0, 0.9
+                    md_bg_color: app.theme_cls.accent_color
+                    
+                MDFillRoundFlatIconButton:
+                    text: "Classes"
+                    icon: "book"
+                    theme_text_color: "Custom"
+                    text_color: 0, 0, 0, 0.9
+                    md_bg_color: app.theme_cls.accent_color
+                    
+                MDFillRoundFlatIconButton:
+                    text: "About"
+                    icon: "information"
+                    theme_text_color: "Custom"
+                    text_color: 0, 0, 0, 0.9
+                    md_bg_color: app.theme_cls.accent_color
+                    
+
+
+
+            MDGridLayout:
+                cols: 2
+                spacing: 10
+                padding: [20, 20]
+                size_hint_y: None
+                height: self.minimum_height
+
+                Label:
+                    text: 'Test ID:'
+                    size_hint_x: None
+                    width: 100
+
+                MDTextField:
+                    id: test_input
+                    size_hint_x: None
+                    width: 150
+                    size_hint_y: None
+                    height: 40
+            
+            MDTextField:
+                id: class_input
+                multiline: False
+                hint_text: "Enter class name"
+                helper_text_mode: "on_focus"
+                mode: "rectangle"
+                size_hint_x: None
+                width: 400
+                size_hint_y: None
+                height: 40
+
+            MDTextField:
+                id: name_input
+                multiline: False
+                hint_text: "Enter student's name"
+                helper_text_mode: "on_focus"
+                mode: "rectangle"
+                size_hint_x: None
+                width: 400
+                size_hint_y: None
+                height: 40
+
+            MDGridLayout:
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 0.9
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [20,]
+                cols: 3
+                spacing: 10
+                padding: [20, 20]
+                size_hint_y: None
+                height: self.minimum_height
+                size_hint_x: None
+                width: self.minimum_width
+
+                MDLabel:
+                    text: 'Reading:'
+                    size_hint_x: None
+                    width: 100
+                    
+                MDTextField:
+                    id: reading_input
+                    multiline: False
+                    size_hint_x: None
+                    width: 100
+                    size_hint_y: None
+                    height: 40
+                    input_filter: "int"
+                
+                MDLabel:
+                    id: reading_per_display
+                    text: '/32'
+                    size_hint_x: None
+
+                MDLabel:
+                    text: 'Listening:'
+                    size_hint_x: None
+                    width: 100
+                MDTextField:
+                    id: listening_input
+                    multiline: False
+                    size_hint_x: None
+                    width: 100
+                    size_hint_y: None
+                    height: 40
+                    input_filter: "int"
+                
+                MDLabel:
+                    id: list_per_display
+                    text: '/25'
+                    size_hint_x: None
+
+                MDLabel:
+                    text: 'Writing Pt.1:'
+                    size_hint_x: None
+                    width: 100
+                MDTextField:
+                    id: writing1_input
+                    multiline: False
+                    size_hint_x: None
+                    width: 100
+                    size_hint_y: None
+                    height: 40
+                    input_filter: "int"
+                
+                MDLabel:
+                    text: ''
+                    size_hint_x: None
+
+                MDLabel:
+                    text: 'Writing Pt.2:'
+                    size_hint_x: None
+                    width: 100
+                MDTextField:
+                    id: writing2_input
+                    multiline: False
+                    size_hint_x: None
+                    width: 100
+                    size_hint_y: None
+                    height: 40
+                    input_filter: "int"
+                
+                MDLabel:
+                    id: writing_per_display
+                    text: '/40'
+                    size_hint_x: None
+
+                MDLabel:
+                    text: 'Speaking:'
+                    size_hint_x: None
+                    width: 100
+                MDTextField:
+                    id: speaking_input
+                    multiline: False
+                    size_hint_x: None
+                    width: 100
+                    size_hint_y: None
+                    height: 40
+                    input_filter: "int"
+                
+                MDLabel:
+                    id: speaking_per_display
+                    text: '/20'
+                    size_hint_x: None
+
+                MDFillRoundFlatIconButton:
+                    icon: "plus"
+                    text: "Add Student"
+                    size_hint_x: None
+                    width: 150
+                    md_bg_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    text_color: 0, 0, 0, 0.9
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                
+                MDFillRoundFlatIconButton:
+                    icon: "calculator"
+                    text: "Calculate"
+                    size_hint_x: None
+                    width: 200
+                    text_color: 0, 0, 0, 0.9
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    on_release: app.calculate()
+                
+                MDFillRoundFlatIconButton:
+                    icon: "close"
+                    text: " "
+                    size_hint_x: None
+                    width: 200
+                    text_color: 0, 0, 0, 0
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    on_release: app.clear()
+                
+              
+                
+            MDLabel:
+                id: results_text
+                text: ' '
+                spacing: 10
+                padding: [20, 20]
+                size_hint_y: None
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 0.9
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [20,]
+
+<RiWriter>:
+    name: "riwriter_app"
+<Classes>:
+    name: "classes_app"
+<User_manual>:
+    name: "user_manual_app"
+
